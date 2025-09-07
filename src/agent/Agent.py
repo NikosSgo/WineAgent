@@ -52,11 +52,7 @@ class Agent:
         if res.tool_calls:
             result = []
             for f in res.tool_calls:
-                print(
-                    f" + Вызываем функцию {f.function.name}, args={
-                        f.function.arguments
-                    }"
-                )
+                print(f" + Вызываем функцию {f.function.name}, args={f.function.arguments}")
                 fn = self.tools[f.function.name]
                 obj = fn(**f.function.arguments)
                 x = obj.process(thread)
